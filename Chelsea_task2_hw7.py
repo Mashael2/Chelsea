@@ -3,6 +3,20 @@ import sys
 
 
 
+def printDigit(d):
+    """
+    A function to print the digits
+    """
+
+
+
+def printBarCode(zipCode):
+    """
+    A function to print the bar code
+    """
+
+
+
 # Main function
 def main():
     """
