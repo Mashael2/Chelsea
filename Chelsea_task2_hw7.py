@@ -40,17 +40,15 @@ def printBarCode(zipCode):
     """
     A function to print the bar code
     """
-    
     zipcode = int(zipCode)
     zipcode = str(zipCode)
 
     if len(zipCode) != 5:
         print("Error: Zip code is not 5 digits")
         return""
-
+    
     checkDigit = int(zipCode)
-    checkD = checkDigit  %10
-
+    checkD = checkDigit % 10
 
     barcode = "|"
     barcode += printDigit(zipcode[0])
