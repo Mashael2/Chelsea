@@ -10,7 +10,7 @@ def printDigit(d):
     try:
         d = int(d)
     except:
-        print("Error: Zip cpde is not all numeric")
+        print("Error: Zip code is not all numeric")
         return""
     if d == 1:
         return(":::||")
@@ -40,14 +40,17 @@ def printBarCode(zipCode):
     """
     A function to print the bar code
     """
+    
     zipcode = int(zipCode)
     zipcode = str(zipCode)
 
-    if len(zipcode) != 5:
+    if len(zipCode) != 5:
         print("Error: Zip code is not 5 digits")
         return""
 
-    #checkDigit = sum(zipcode) %10
+    checkDigit = int(zipCode)
+    checkD = checkDigit  %10
+
 
     barcode = "|"
     barcode += printDigit(zipcode[0])
@@ -55,6 +58,7 @@ def printBarCode(zipCode):
     barcode += printDigit(zipcode[2])
     barcode += printDigit(zipcode[3])
     barcode += printDigit(zipcode[4])
+    barcode += printDigit(checkD)
     barcode += "|"
 
     return barcode
