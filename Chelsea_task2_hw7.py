@@ -8,31 +8,31 @@ def printDigit(d):
     A function to print the digits
     """
     try:
-        d = int(d)
+        i = int(d)
     except:
         print("Error: Zip code is not all numeric")
         return""
-    if d == 1:
+    if(i == 1):
         return(":::||")
-    if d == 2:
+    if(i == 2):
         return("::|:|")
-    if d == 3:
+    if(i == 3):
         return("::||:")
-    if d == 4:
+    if(i == 4):
         return(":|::|")
-    if d == 5:
+    if(i == 5):
         return(":|:|:")
-    if d == 6:
+    if(i == 6):
         return(":||::")
-    if d == 7:
+    if(i == 7):
         return("|:::|")
-    if d == 8:
+    if(i == 8):
         return("|::|:")
-    if d == 9:
+    if(i == 9):
         return("|:|::")
-    if d == 0:
+    if(i == 0):
         return("||:::")
-    return""
+        #return""
 
 
 
@@ -42,23 +42,33 @@ def printBarCode(zipCode):
     """
     zipcode = int(zipCode)
     zipcode = str(zipCode)
+    zipSum = 0
+    checkDigit = 0
+
+    for i in zipCode:
+        zipSum += int(i)
+        #printDigit(i)
+
+    while ((zipSum%10) != 0):
+        checkDigit += 1
+        zipSum += 1
+    #printDigit(checkDigit)
+    
 
     if len(zipCode) != 5:
         print("Error: Zip code is not 5 digits")
         return""
     
-    checkDigit = int(zipCode)
-    checkD = checkDigit % 10
+    #checkDigit = int(zipCode)
+    #checkD = checkDigit % 10
 
     barcode = "|"
-    barcode += printDigit(zipcode[0])
-    barcode += printDigit(zipcode[1])
-    barcode += printDigit(zipcode[2])
-    barcode += printDigit(zipcode[3])
+    barcode += printDigit(zipcode[0]) 
+    barcode += printDigit(zipcode[1]) 
+    barcode += printDigit(zipcode[2]) 
+    barcode += printDigit(zipcode[3]) 
     barcode += printDigit(zipcode[4])
-    barcode += printDigit(checkD)
-    barcode += "|"
-
+    barcode += "|" 
     return barcode
 
         
@@ -68,7 +78,8 @@ def main():
     """
     Test Function
     """
-    printBarCode(zipCode)
+    userInput = input("Enter Zip code: ")
+    printBarCode(userInput)
 
 
 
