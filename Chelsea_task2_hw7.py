@@ -2,7 +2,6 @@
 import sys
 
 
-
 def printDigit(d):
     """
     A function to print the digits
@@ -34,8 +33,6 @@ def printDigit(d):
         return("||:::")
         #return""
 
-
-
 def printBarCode(zipCode):
     """
     A function to print the bar code
@@ -47,20 +44,17 @@ def printBarCode(zipCode):
 
     for i in zipCode:
         zipSum += int(i)
-        #printDigit(i)
+        printDigit(i)
 
     while ((zipSum%10) != 0):
         checkDigit += 1
         zipSum += 1
+
     #printDigit(checkDigit)
     
-
     if len(zipCode) != 5:
         print("Error: Zip code is not 5 digits")
         return""
-    
-    #checkDigit = int(zipCode)
-    #checkD = checkDigit % 10
 
     barcode = "|"
     barcode += printDigit(zipcode[0]) 
@@ -72,7 +66,6 @@ def printBarCode(zipCode):
     return barcode
 
         
-
 # Main function
 def main():
     """
@@ -80,7 +73,6 @@ def main():
     """
     userInput = input("Enter Zip code: ")
     printBarCode(userInput)
-
 
 
 if __name__ == "__main__":
