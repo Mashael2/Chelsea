@@ -37,14 +37,11 @@ def printBarCode(zipCode):
     """
     A function to print the bar code
     """
-    zipcode = int(zipCode)
-    zipcode = str(zipCode)
     zipSum = 0
     checkDigit = 0
 
     for i in zipCode:
         zipSum += int(i)
-        printDigit(i)
 
     while ((zipSum%10) != 0):
         checkDigit += 1
@@ -57,11 +54,12 @@ def printBarCode(zipCode):
         return""
 
     barcode = "|"
-    barcode += printDigit(zipcode[0]) 
-    barcode += printDigit(zipcode[1]) 
-    barcode += printDigit(zipcode[2]) 
-    barcode += printDigit(zipcode[3]) 
-    barcode += printDigit(zipcode[4])
+    barcode += printDigit(zipCode[0]) 
+    barcode += printDigit(zipCode[1]) 
+    barcode += printDigit(zipCode[2]) 
+    barcode += printDigit(zipCode[3]) 
+    barcode += printDigit(zipCode[4])
+    barcode += printDigit(checkDigit)
     barcode += "|" 
     return barcode
 
